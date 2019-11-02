@@ -5,12 +5,12 @@ var Loader = Laya.Loader;
 var Stat = Laya.Stat;
 
 var Resources = [
-    { url: 'model/LayaScene_ArtSence/ArtSence.ls', type: Laya.Scene }
+    { url: 'model/LayaScene_gem/gem.ls', type: Laya.Scene }
     // { url: 'images/designer/1.jpg', type: Loader.IMAGE }
     // { url: 'res/atlas/images/fire.atlas', type: Loader.ATLAS }
 ];
 
-var INITIAL_TRANSITION = {x:0,y:0.08,z:0.6};
+var INITIAL_TRANSITION = {x:0,y:0.08,z:7};
 var INITIAL_ROTATION = {x:0,y:0};
 
 // 变量

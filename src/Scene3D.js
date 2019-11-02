@@ -2,21 +2,19 @@
  * 场景初始化
  */
 function SenceInit() {
-    iScene = Laya.loader.getRes("model/LayaScene_ArtSence/ArtSence.ls");
+    iScene = Laya.loader.getRes("model/LayaScene_gem/gem.ls");
     iCamera = iScene.getChildByName("MainCamera");
-    iModel = iScene.getChildByName("group_dior");
 
     //需要隐藏的mesh
     // var group_point = iScene.getChildByName('group_point');
     // group_point.getChildByName('point12').active = false;
 
-    // iLight = new Laya.PointLight();
-    // iLight.color = new Laya.Vector3(1, 1, 1);
-    // iLight = new Laya.SpotLight();
-    // iLight.color = new Laya.Vector3(1, 1, 1);
-    // iLight.direction = new Laya.Vector3(0, 0.5, 0);
+    iLight = new Laya.DirectionLight();
+    iLight.color = new Laya.Vector3(1, 1, 1);
+    iLight.direction = new Laya.Vector3(-0.3, -0.3, -0.5);
+    // iLight.range = 1000;
 
-    // iScene.addChild(iLight);
+    iScene.addChild(iLight);
 
     Laya.stage.addChild(iScene);
     EventHitInit();

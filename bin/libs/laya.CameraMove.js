@@ -97,7 +97,7 @@ var CameraMoveScript = function () {
      */
     function translateCamera(e) {
         if (controlFlag) {
-            var dis = 0.01;
+            var dis = 0.1;
             var key = e.keyCode;
 
             switch (key) {
@@ -127,8 +127,8 @@ var CameraMoveScript = function () {
                     break;
             }
 
-            // console.log("移动：");
-            // console.log(onceTransition);
+            console.log("移动：");
+            console.log(onceTransition);
         }
     }
 
@@ -166,8 +166,8 @@ var CameraMoveScript = function () {
             rotateCamera();
             nowViewAngle = "free";
 
-            // console.log("旋转：");
-            // console.log(onceRotation);
+            console.log("旋转：");
+            console.log(onceRotation);
 
             touchStart = touch;
         }
