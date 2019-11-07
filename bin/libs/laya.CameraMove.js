@@ -71,8 +71,8 @@ var CameraMoveScript = function () {
      * 事件初始化
      */
     function eventInit() {
-        Laya.stage.on(Laya.Event.MOUSE_DOWN, this, recordTouchStart);
-        Laya.stage.on(Laya.Event.MOUSE_MOVE, this, recordTouchMove);
+        // Laya.stage.on(Laya.Event.MOUSE_DOWN, this, recordTouchStart);
+        // Laya.stage.on(Laya.Event.MOUSE_MOVE, this, recordTouchMove);
         Laya.stage.on(Laya.Event.KEY_DOWN, this, translateCamera);
     }
 
@@ -99,9 +99,8 @@ var CameraMoveScript = function () {
         if (controlFlag) {
             var dis = 0.1;
             var key = e.keyCode;
-
             switch (key) {
-                case 68:
+                case 81:
                     onceTransition.x = imath.FloatPointAdd(onceTransition.x, dis);
                     moveCamera();
                     break;
@@ -109,19 +108,19 @@ var CameraMoveScript = function () {
                     onceTransition.x = imath.FloatPointAdd(onceTransition.x, -dis);
                     moveCamera();
                     break;
-                case 81:
+                case 87:
                     onceTransition.y = imath.FloatPointAdd(onceTransition.y, dis);
                     moveCamera();
                     break;
-                case 69:
+                case 83:
                     onceTransition.y = imath.FloatPointAdd(onceTransition.y, -dis);
                     moveCamera();
                     break;
-                case 87:
+                case 69:
                     onceTransition.z = imath.FloatPointAdd(onceTransition.z, dis);
                     moveCamera();
                     break;
-                case 83:
+                case 68:
                     onceTransition.z = imath.FloatPointAdd(onceTransition.z, -dis);
                     moveCamera();
                     break;

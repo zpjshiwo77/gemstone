@@ -21,6 +21,42 @@ function SenceInit() {
     SenceEventInit();
     CameraMoveInit();
     OpenAnime();
+    DealMaterialMetal();
+    DealMaterialGem();
+}
+
+/**
+ * 处理金属材质
+ */
+function DealMaterialMetal() {
+    var circle = iScene.getChildByName("focal-circle");
+    var mesh = circle.getChildAt(0);
+    MetalM = mesh.meshRender.sharedMaterial;
+    //反射率
+    MetalM.albedo = new Laya.Vector4(1.0, 1.0, 1.0, 1.0);
+    //环境光颜色
+    MetalM.ambientColor = new Laya.Vector3(1.5, 1.5, 1.5);
+    //漫反射光颜色
+    MetalM.diffuseColor = new Laya.Vector3(0, 0, 0);
+    //反射颜色
+    MetalM.reflectColor = new Laya.Vector3(0, 0, 0);
+}
+
+/**
+ * 处理宝石材质
+ */
+function DealMaterialGem() {
+    var circle = iScene.getChildByName("gem1");
+    var mesh = circle.getChildAt(0);
+    GemM = mesh.meshRender.sharedMaterial;
+    //反射率
+    GemM.albedo = new Laya.Vector4(1.0, 1.0, 1.0, 1.0);
+    //环境光颜色
+    GemM.ambientColor = new Laya.Vector3(1.0, 1.0, 1.0);
+    //漫反射光颜色
+    GemM.diffuseColor = new Laya.Vector3(1.0, 1.0, 1.0);
+    //反射颜色
+    GemM.reflectColor = new Laya.Vector3(1.0, 1.0, 1.0);
 }
 
 /**
@@ -77,7 +113,7 @@ function GetClickThing() {
  * 开场动画
  */
 function OpenAnime() {
-    CameraMove.cameraMoveAni(INITIAL_TRANSITION, INITIAL_ROTATION,10);
+    CameraMove.cameraMoveAni(INITIAL_TRANSITION, INITIAL_ROTATION, 10);
 }
 
 /**
@@ -86,5 +122,5 @@ function OpenAnime() {
 function CameraMoveInit() {
     CameraMove = new CameraMoveScript();
     CameraMove.init(iCamera);
-    CameraMove.startControlEvent(true,true);
+    CameraMove.startControlEvent(true, true);
 }

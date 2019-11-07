@@ -15,8 +15,105 @@
 	<meta http-equiv='expires' content='0' />
 	<meta http-equiv="Cache-Control" content="no-siteapp"/>
 </head>
+<style>
+	.penal{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		padding: 10px;
+		background-color: rgba(0,0,0,0.5);
+		z-index: 999;
+	}
+	p{
+		color: #fff;
+		padding: 2px;
+		margin: 0;
+	}
+	.label{
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		margin: 2px 0;
+	}
+	.name{
+		color: #fff;
+		width: 23%;
+		float: left;
+		margin: 0 2px;
+	}
+	input{
+		width: 20%;
+		float: left;
+		margin: 0 2px;
+	}
+	.btn{
+		margin: 10px auto 0;
+		width: 100px;
+		height: 30px;
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		line-height: 30px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+</style>
 <body>
-
+	<div class="penal">
+		<p>金属：</p>
+		<div class="label">
+			<div class="name">反射率</div>
+			<input type="text" value="1.0" id="m1">
+			<input type="text" value="1.0" id="m2">
+			<input type="text" value="1.0" id="m3">
+		</div>
+		<div class="label">
+			<div class="name">环境光颜色</div>
+			<input type="text" value="1.0" id="m4">
+			<input type="text" value="1.0" id="m5">
+			<input type="text" value="1.0" id="m6">
+		</div>
+		<div class="label">
+			<div class="name">漫反射光颜色</div>
+			<input type="text" value="1.0" id="m7">
+			<input type="text" value="1.0" id="m8">
+			<input type="text" value="1.0" id="m9">
+		</div>
+		<div class="label">
+			<div class="name">反射颜色</div>
+			<input type="text" value="1.0" id="m10">
+			<input type="text" value="1.0" id="m11">
+			<input type="text" value="1.0" id="m12">
+		</div>
+		<p>宝石：</p>
+		<div class="label">
+			<div class="name">反射率</div>
+			<input type="text" value="1.0" id="m13">
+			<input type="text" value="1.0" id="m14">
+			<input type="text" value="1.0" id="m15">
+		</div>
+		<div class="label">
+			<div class="name">环境光颜色</div>
+			<input type="text" value="1.0" id="m16">
+			<input type="text" value="1.0" id="m17">
+			<input type="text" value="1.0" id="m18">
+		</div>
+		<div class="label">
+			<div class="name">漫反射光颜色</div>
+			<input type="text" value="1.0" id="m19">
+			<input type="text" value="1.0" id="m20">
+			<input type="text" value="1.0" id="m21">
+		</div>
+		<div class="label">
+			<div class="name">反射颜色</div>
+			<input type="text" value="1.0" id="m22">
+			<input type="text" value="1.0" id="m23">
+			<input type="text" value="1.0" id="m24">
+		</div>
+		<div class="btn">确认</div>
+	</div>
 	<!--核心包，封装了显示对象渲染，事件，时间管理，时间轴动画，缓动，消息交互,socket，本地存储，鼠标触摸，声音，加载，颜色滤镜，位图字体等-->
 	<script type="text/javascript" src="libs/laya.core.js"></script>
 	<!--封装了webgl渲染管线，如果使用webgl渲染，可以在初始化时调用Laya.init(1000,800,laya.webgl.WebGL);-->
