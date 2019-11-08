@@ -13,7 +13,7 @@ function SenceInit() {
     iLight.color = new Laya.Vector3(1, 1, 1);
     iLight.direction = new Laya.Vector3(-0.3, -0.3, -0.5);
     // iLight.range = 1000;
-
+    // console.log(iLight);
     iScene.addChild(iLight);
 
     Laya.stage.addChild(iScene);
@@ -23,6 +23,7 @@ function SenceInit() {
     OpenAnime();
     DealMaterialMetal();
     DealMaterialGem();
+    getSaveData();
 }
 
 /**
@@ -33,13 +34,10 @@ function DealMaterialMetal() {
     var mesh = circle.getChildAt(0);
     MetalM = mesh.meshRender.sharedMaterial;
     //反射率
-    MetalM.albedo = new Laya.Vector4(1.0, 1.0, 1.0, 1.0);
-    //环境光颜色
-    MetalM.ambientColor = new Laya.Vector3(1.5, 1.5, 1.5);
-    //漫反射光颜色
-    MetalM.diffuseColor = new Laya.Vector3(0, 0, 0);
-    //反射颜色
-    MetalM.reflectColor = new Laya.Vector3(0, 0, 0);
+    // MetalM.reflectTexture = Laya.Texture2D.load("../bin/images/black.jpg");
+    MetalM.diffuseTexture = Laya.Texture2D.load("../bin/images/m4.jpg");
+    // MetalM.normalTexture = Laya.Texture2D.load("../bin/images/black.jpg");
+    // MetalM.specularTexture = Laya.Texture2D.load("../bin/images/black.jpg");
 }
 
 /**
@@ -49,14 +47,60 @@ function DealMaterialGem() {
     var circle = iScene.getChildByName("gem1");
     var mesh = circle.getChildAt(0);
     GemM = mesh.meshRender.sharedMaterial;
+}
+
+/**
+ * 获取保存的数据
+ */
+function getSaveData() {
+    var v = localStorage.Material;
+    if (v) {
+        v = v.split(",");
+
+        for (var i = 0; i < v.length; i++) {
+            document.getElementById("m" + (i + 1)).value = v[i];
+        }
+
+        changeMaterial(v);
+    }
+    else getMaterialData();
+}
+
+/**
+ * 获取材质数据
+ */
+function getMaterialData() {
+    var v = [];
+
+    for (var i = 1; i <= 25; i++) {
+        var value = document.getElementById("m" + i).value;
+        v.push(value);
+    }
+
+    changeMaterial(v);
+    localStorage.Material = v.toString();
+}
+
+/**
+ * 修改材质
+ */
+function changeMaterial(v) {
     //反射率
-    GemM.albedo = new Laya.Vector4(1.0, 1.0, 1.0, 1.0);
+    MetalM.albedo = new Laya.Vector4(v[0], v[1], v[2], 1.0);
     //环境光颜色
-    GemM.ambientColor = new Laya.Vector3(1.0, 1.0, 1.0);
+    MetalM.ambientColor = new Laya.Vector3(v[3], v[4], v[5]);
     //漫反射光颜色
-    GemM.diffuseColor = new Laya.Vector3(1.0, 1.0, 1.0);
+    MetalM.diffuseColor = new Laya.Vector3(v[6], v[7], v[8]);
     //反射颜色
-    GemM.reflectColor = new Laya.Vector3(1.0, 1.0, 1.0);
+    MetalM.reflectColor = new Laya.Vector3(v[9], v[10], v[11]);
+    //反射率
+    GemM.albedo = new Laya.Vector4(v[12], v[13], v[14], v[24]);
+    //环境光颜色
+    GemM.ambientColor = new Laya.Vector3(v[15], v[16], v[17]);
+    //漫反射光颜色
+    GemM.diffuseColor = new Laya.Vector3(v[18], v[19], v[20]);
+    //反射颜色
+    GemM.reflectColor = new Laya.Vector3(v[21], v[22], v[23]);
 }
 
 /**
@@ -75,6 +119,7 @@ function EventHitInit() {
 function SenceEventInit() {
     Laya.stage.on(Laya.Event.CLICK, this, GetClickThing);
 
+    document.getElementById("ok").onclick = getMaterialData;
     // document.getElementById("prev").onclick = changePosPrev;
     // document.getElementById("next").onclick = changePosNext;
 }

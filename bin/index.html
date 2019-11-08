@@ -48,6 +48,9 @@
 		float: left;
 		margin: 0 2px;
 	}
+	.sp input{
+		width: 14.44%;
+	}
 	.btn{
 		margin: 10px auto 0;
 		width: 100px;
@@ -71,15 +74,15 @@
 		</div>
 		<div class="label">
 			<div class="name">环境光颜色</div>
-			<input type="text" value="1.0" id="m4">
-			<input type="text" value="1.0" id="m5">
-			<input type="text" value="1.0" id="m6">
+			<input type="text" value="0" id="m4">
+			<input type="text" value="0" id="m5">
+			<input type="text" value="0" id="m6">
 		</div>
 		<div class="label">
 			<div class="name">漫反射光颜色</div>
-			<input type="text" value="1.0" id="m7">
-			<input type="text" value="1.0" id="m8">
-			<input type="text" value="1.0" id="m9">
+			<input type="text" value="0.9" id="m7">
+			<input type="text" value="0.9" id="m8">
+			<input type="text" value="0.9" id="m9">
 		</div>
 		<div class="label">
 			<div class="name">反射颜色</div>
@@ -88,11 +91,12 @@
 			<input type="text" value="1.0" id="m12">
 		</div>
 		<p>宝石：</p>
-		<div class="label">
+		<div class="label sp">
 			<div class="name">反射率</div>
-			<input type="text" value="1.0" id="m13">
-			<input type="text" value="1.0" id="m14">
-			<input type="text" value="1.0" id="m15">
+			<input type="text" value="0.8396" id="m13">
+			<input type="text" value="0.1782" id="m14">
+			<input type="text" value="0.1782" id="m15">
+			<input type="text" value="0.9" id="m25">
 		</div>
 		<div class="label">
 			<div class="name">环境光颜色</div>
@@ -112,7 +116,7 @@
 			<input type="text" value="1.0" id="m23">
 			<input type="text" value="1.0" id="m24">
 		</div>
-		<div class="btn">确认</div>
+		<div class="btn" id="ok">确认</div>
 	</div>
 	<!--核心包，封装了显示对象渲染，事件，时间管理，时间轴动画，缓动，消息交互,socket，本地存储，鼠标触摸，声音，加载，颜色滤镜，位图字体等-->
 	<script type="text/javascript" src="libs/laya.core.js"></script>

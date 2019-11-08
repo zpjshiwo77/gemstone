@@ -1,7 +1,7 @@
 {
 	"version":"LAYAMATERIAL:01",
 	"props":{
-		"name":"object_68Mat",
+		"name":"object_14Mat",
 		"cull":2,
 		"blend":0,
 		"srcBlend":1,

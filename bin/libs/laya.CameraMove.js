@@ -1,11 +1,11 @@
 var CameraMoveScript = function () {
     var icamera;
     var touchStart = { x: 0, y: 0 };
-    var rotateSpeed = 0.2;
+    var rotateSpeed = 0.01;
     var controlX = false, controlY = false, controlFlag = false;
     var onceRotation = INITIAL_ROTATION;
     var onceTransition = INITIAL_TRANSITION;
-    var ViewRangX = {max:45,min:-45};
+    var ViewRangX = {max:1.5,min:-1.5};
     var ViewRangY = {max:30,min:-20};
 
     /**
@@ -71,8 +71,8 @@ var CameraMoveScript = function () {
      * 事件初始化
      */
     function eventInit() {
-        // Laya.stage.on(Laya.Event.MOUSE_DOWN, this, recordTouchStart);
-        // Laya.stage.on(Laya.Event.MOUSE_MOVE, this, recordTouchMove);
+        Laya.stage.on(Laya.Event.MOUSE_DOWN, this, recordTouchStart);
+        Laya.stage.on(Laya.Event.MOUSE_MOVE, this, recordTouchMove);
         Laya.stage.on(Laya.Event.KEY_DOWN, this, translateCamera);
     }
 
@@ -162,11 +162,13 @@ var CameraMoveScript = function () {
             // icamera.transform.rotate(new Laya.Vector3(y, x, 0), false);
             onceRotation.x = imath.FloatPointAdd(onceRotation.x, x);
             onceRotation.y = imath.FloatPointAdd(onceRotation.y, y);
-            rotateCamera();
-            nowViewAngle = "free";
+            // rotateCamera();
+            // nowViewAngle = "free";
 
             console.log("旋转：");
             console.log(onceRotation);
+
+            iLight.direction = new Laya.Vector3(-0.3-onceRotation.x, -0.3, -0.5);
 
             touchStart = touch;
         }
